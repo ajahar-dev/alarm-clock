@@ -38,13 +38,18 @@ setInterval(() => {
     if(H >= 12) {
         H = H - 12;
         ampm = "PM";
+    }
 
         H = H == 0? (H = 12) : H;
         H = H < 10? "0" + H : H;
         M = M < 10? "0" + M : M;
         S = S < 10? "0" + S : S;
 
-        currentTime.innerHTML = `${H}:${M}:${S}:${ampm}`;
+        currentTime.innerHTML = `${H}:${M}:${S} ${ampm}`;
 
+    if(alarmTime === `${H}:${M} ${ampm}`)
+    {
+        rington.play();
+        rington.loop = true;
     }
-})
+});
